@@ -2,7 +2,7 @@
   "name": "origanum",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jogracz.github.io/origanum",
+  "homepage": "https://jogracz.github.io/t-origanum/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
