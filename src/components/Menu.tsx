@@ -25,7 +25,7 @@ const MenuWrapper = styled.div`
 const Header = () => {
   return (
     <MenuWrapper>
-      <NavLink activeClassName='active' to={`${SITE_PREFIX}/home`}>Game</NavLink>
+      <NavLink activeClassName='active' to={`${SITE_PREFIX}/`}>Game</NavLink>
       <NavLink activeClassName='active' to={`${SITE_PREFIX}/settings`}>Settings</NavLink>
       <NavLink activeClassName='active' to={`${SITE_PREFIX}/about`}>About</NavLink>
     </MenuWrapper>

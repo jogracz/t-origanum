@@ -30,7 +30,7 @@ function App() {
         <Menu />
         <ContentWrapper>
           <Switch>
-            <Route exact path={`${SITE_PREFIX}/home`}>
+            <Route exact path={`${SITE_PREFIX}/`}>
               <Home />
             </Route>
             <Route exact path={`${SITE_PREFIX}/about`}>
