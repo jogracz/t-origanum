@@ -66,6 +66,7 @@ export const AppProvider = (props: AppProviderProps) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameEnded, setGameEnded] = useState(false);
   const [pace, setPace] = useState(PACE.VERY_CALM);
+  const [checkedIndexes, setCheckedIndexes] = useState<number[]>([]);
 
   const handleGameStart = () => {
     setGameStarted(true)
@@ -81,13 +82,20 @@ export const AppProvider = (props: AppProviderProps) => {
       setGameEnded(true);
       console.log('Game ended') ;
     }, gameConfig.letters.length * pace)
-  }
+  } 
 
   const handleUserAnswer = (currentIndex: number) => {
-    if (gameConfig.answers[currentIndex]) {
-      setPoints(points => points + 1);
-    } else {
-      setErrrors(errors => errors + 1);
+
+    console.log(checkedIndexes);
+    if (!checkedIndexes.includes(currentIndex)) {
+      setCheckedIndexes(checkedIndexes => [...checkedIndexes, currentIndex]);
+      if (gameConfig.answers[currentIndex]) {
+        setPoints(points => points + 1);
+        console.log(points);
+      } else {
+        setErrrors(errors => errors + 1);
+        console.log(errors);
+      }
     }
   }
 
@@ -102,6 +110,7 @@ export const AppProvider = (props: AppProviderProps) => {
 
   const handleReplay = () => {
     clearTimeouts();
+    setCheckedIndexes([]);
     setErrrors(0);
     setPoints(0);
     setGameStarted(false);
